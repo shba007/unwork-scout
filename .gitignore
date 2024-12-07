@@ -1,7 +1,19 @@
-node_modules
-dist
+# Nitro dev/build outputs
 .data
+.output
 .nitro
 .cache
-.output
-.env
+dist
+
+# Node dependencies
+node_modules
+
+# Logs
+logs
+*.log
+
+# Local env files
+.env*
+!.env.example
+
+user.config.ts
