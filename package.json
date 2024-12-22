@@ -1,6 +1,6 @@
 {
   "name": "unwork-api",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "description": "Global REST API Job Scouting Service",
   "author": "Shirsendu Bairagi <shirsendu2001@gmail.com>",
   "license": "MIT",
