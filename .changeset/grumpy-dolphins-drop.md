@@ -1,5 +1,5 @@
 ---
-'api-unwork': minor
+'unwork-api': minor
 ---
 
 feat: implement job scouting and filtering
