@@ -1,0 +1,8 @@
+name: 'unwork'
+services:
+  api:
+    image: 'ghcr.io/shba007/unwork-api:latest'
+    env_file:
+      - .env.prod
+    ports:
+      - 2400:3000

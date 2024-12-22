@@ -18,7 +18,7 @@ export default defineTask({
       return { status: 'success', result: '' }
     } catch (error) {
       console.error('Failed We Work Remotely Scout task', error)
-      return { status: 'failed', }
+      return { status: 'failed' }
     }
   },
 })

@@ -2,7 +2,7 @@
   <img src="./public/logo.png" lt="Logo" width="80" />
 <p>
 
-# Job Scouting Service
+# UnWork
 
 > Global REST API Job Scouting Service
 

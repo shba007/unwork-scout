@@ -12,7 +12,12 @@ node_modules
 logs
 *.log
 
-# Local env files
+# Misc
+.DS_Store
+.fleet
+.idea
+
+# Env files
 .env*
 !.env.example
 

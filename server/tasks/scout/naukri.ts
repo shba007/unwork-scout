@@ -129,43 +129,48 @@ export default defineTask({
         },
       })
 
-      const result = (await promisePool((
-        response.jobDetails.map(({ jobId, title, logoPath, companyName, jobDescription, jdURL, createdDate }) => {
-          return () => prisma.job.upsert({
-            create: {
-              source: 'NAUKRI',
-              sourceId: `${jobId}`,
-              category: 'Project Management',
-              candidateRequiredLocation: 'Kolkata',
-              jobType: 'fulltime',
-              salary: 'null',
-              title,
-              companyName,
-              companyLogo: logoPath,
-              description: jobDescription,
-              url: `${NAUKRI_BASE_URL}${jdURL}`,
-              createdAt: new Date(createdDate),
-            },
-            update: {
-              category,
-              candidateRequiredLocation: 'Kolkata',
-              jobType: 'fulltime',
-              salary: 'null',
-              title,
-              companyName,
-              companyLogo: logoPath,
-              description: jobDescription,
-              url: `${NAUKRI_BASE_URL}${jdURL}`,
-            },
-            where: {
-              source_sourceId: {
-                source: 'NAUKRI',
-                sourceId: `${jobId}`,
-              },
-            },
+      const result = (
+        await promisePool(
+          response.jobDetails.map(({ jobId, title, logoPath, companyName, jobDescription, jdURL, createdDate }) => {
+            return () =>
+              prisma.job.upsert({
+                create: {
+                  source: 'NAUKRI',
+                  sourceId: `${jobId}`,
+                  category: 'Project Management',
+                  candidateRequiredLocation: 'Kolkata',
+                  jobType: 'fulltime',
+                  salary: 'null',
+                  title,
+                  companyName,
+                  companyLogo: logoPath,
+                  description: jobDescription,
+                  url: `${NAUKRI_BASE_URL}${jdURL}`,
+                  createdAt: new Date(createdDate),
+                },
+                update: {
+                  category,
+                  candidateRequiredLocation: 'Kolkata',
+                  jobType: 'fulltime',
+                  salary: 'null',
+                  title,
+                  companyName,
+                  companyLogo: logoPath,
+                  description: jobDescription,
+                  url: `${NAUKRI_BASE_URL}${jdURL}`,
+                },
+                where: {
+                  source_sourceId: {
+                    source: 'NAUKRI',
+                    sourceId: `${jobId}`,
+                  },
+                },
+              })
           })
-        })
-      ))).filter(({ status }) => status === 'fullfilled').map(({ value }) => value)
+        )
+      )
+        .filter(({ status }) => status === 'fullfilled')
+        .map(({ value }) => value)
 
       console.info('Success Naukri Scout task')
       return {
@@ -179,7 +184,7 @@ export default defineTask({
       }
     } catch (error) {
       console.error('Failed Naukri Scout task', error)
-      return { status: 'failed', }
+      return { status: 'failed' }
     }
   },
 })

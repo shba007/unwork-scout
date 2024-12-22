@@ -1,12 +1,12 @@
 {
-  "name": "api-unwork",
+  "name": "unwork-api",
   "version": "0.0.0",
   "description": "Global REST API Job Scouting Service",
   "author": "Shirsendu Bairagi <shirsendu2001@gmail.com>",
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/shba007/api-unwork.git"
+    "url": "git+https://github.com/shba007/unwork-api.git"
   },
   "type": "module",
   "private": true,
@@ -17,14 +17,13 @@
     "node": "^20.15.0 || ^22.11.0",
     "pnpm": "^9.15.0"
   },
-  "packageManager": "pnpm@9.15.0+sha512.76e2379760a4328ec4415815bcd6628dee727af3779aaa4c914e3944156c4299921a89f976381ee107d41f12cfa4b66681ca9c718f0668fa0831ed4c6d8ba56c",
+  "packageManager": "pnpm@9.15.1",
   "scripts": {
-    "prepare": "nitro prepare && prisma generate",
+    "prepare": "husky",
     "dev": "nitro dev",
     "detect": "gitleaks git --verbose",
     "lint": "eslint . --fix",
-    "format": "prettier .  --write",
-    "commit": "oco",
+    "format": "prettier . --write",
     "task:scout:remotive": "nitro task run scout:remotive --payload \"{\\\"limit\\\": 100}\"",
     "task:filter": "nitro task run filter --payload \"{\\\"category\\\": \\\"Project Management\\\", \\\"daysAgo\\\": 7, \\\"sortBy\\\": \\\"recency\\\"}\"",
     "db:push": "prisma db push",
@@ -34,21 +33,25 @@
     "preview": "node --env-file=.env .output/server/index.mjs",
     "start": "node .output/server/index.mjs",
     "clean": "rm -rf .nitro .output",
-    "docker:build": "docker build --build-arg VERSION_TAG=dev -t api-unwork:dev .",
-    "docker:start": "docker run --detach --name api-unwork --env-file .env.prod -p 2002:3000 api-unwork:dev",
-    "tunnel": "npx untun tunnel --port 2002 http://localhost:2002"
+    "docker:build": "docker build --build-arg VERSION_TAG=dev -t unwork-api:dev .",
+    "docker:start": "docker run --detach --name unwork-api --env-file .env.prod -p 2400:3000 unwork-api:dev",
+    "tunnel": "npx untun tunnel --port 2400 http://localhost:2400"
   },
   "dependencies": {
-    "@prisma/client": "6.0.1",
+    "@prisma/client": "6.1.0",
     "date-fns": "^4.1.0",
     "nitropack": "^2.10.4"
   },
   "devDependencies": {
-    "@changesets/cli": "^2.27.10",
-    "eslint": "^9.16.0",
+    "@changesets/cli": "^2.27.11",
+    "@commitlint/cli": "^19.6.1",
+    "@commitlint/config-conventional": "^19.6.0",
+    "eslint": "^9.17.0",
     "eslint-config-prettier": "^9.1.0",
+    "eslint-config-unjs": "^0.4.2",
+    "husky": "^9.1.7",
     "prettier": "^3.4.2",
-    "prisma": "^6.0.1",
+    "prisma": "^6.1.0",
     "untun": "^0.1.3"
   }
 }

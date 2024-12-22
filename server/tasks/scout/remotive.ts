@@ -52,41 +52,48 @@ export default defineTask({
         }),
       })
 
-      const result = (await promisePool(response.jobs.map(({ id, url, category, candidate_required_location, job_type, salary, title, company_name, company_logo, description, publication_date }) => {
-        return () => prisma.job.upsert({
-          create: {
-            source: 'REMOTIVE',
-            sourceId: `${id}`,
-            category,
-            candidateRequiredLocation: candidate_required_location,
-            jobType: job_type,
-            salary,
-            title,
-            companyName: company_name,
-            companyLogo: company_logo,
-            description,
-            url,
-            createdAt: new Date(publication_date),
-          },
-          update: {
-            category,
-            candidateRequiredLocation: candidate_required_location,
-            jobType: job_type,
-            salary,
-            title,
-            companyName: company_name,
-            companyLogo: company_logo,
-            description,
-            url,
-          },
-          where: {
-            source_sourceId: {
-              source: 'REMOTIVE',
-              sourceId: `${id}`,
-            },
-          },
-        })
-      }))).filter(({ status }) => status === 'fullfilled').map(({ value }) => value)
+      const result = (
+        await promisePool(
+          response.jobs.map(({ id, url, category, candidate_required_location, job_type, salary, title, company_name, company_logo, description, publication_date }) => {
+            return () =>
+              prisma.job.upsert({
+                create: {
+                  source: 'REMOTIVE',
+                  sourceId: `${id}`,
+                  category,
+                  candidateRequiredLocation: candidate_required_location,
+                  jobType: job_type,
+                  salary,
+                  title,
+                  companyName: company_name,
+                  companyLogo: company_logo,
+                  description,
+                  url,
+                  createdAt: new Date(publication_date),
+                },
+                update: {
+                  category,
+                  candidateRequiredLocation: candidate_required_location,
+                  jobType: job_type,
+                  salary,
+                  title,
+                  companyName: company_name,
+                  companyLogo: company_logo,
+                  description,
+                  url,
+                },
+                where: {
+                  source_sourceId: {
+                    source: 'REMOTIVE',
+                    sourceId: `${id}`,
+                  },
+                },
+              })
+          })
+        )
+      )
+        .filter(({ status }) => status === 'fullfilled')
+        .map(({ value }) => value)
 
       console.info('Success Remotive Scout task')
       return {
@@ -100,7 +107,7 @@ export default defineTask({
       }
     } catch (error) {
       console.error('Failed Remotive Scout task', error)
-      return { status: 'failed', }
+      return { status: 'failed' }
     }
   },
 })

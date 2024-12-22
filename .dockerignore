@@ -1,13 +1,11 @@
-.vs
-.vscode
-
-.changeset
+# Git/Github
 .git
 .github
+.gitignore
 
-# Nuxt dev/build outputs
+# Nitro dev/build outputs
+.data
 .output
-.nuxt
 .nitro
 .cache
 dist
@@ -28,8 +26,6 @@ logs
 .env
 .env.*
 
+# Dockerfile
 .dockerignore
 Dockerfile
-
-# Static Files
-static

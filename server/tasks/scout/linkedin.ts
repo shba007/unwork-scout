@@ -19,7 +19,7 @@ export default defineTask({
       return { status: 'success', result: '' }
     } catch (error) {
       console.error('Failed Linkedin Scout task', error)
-      return { status: 'failed', }
+      return { status: 'failed' }
     }
   },
 })
