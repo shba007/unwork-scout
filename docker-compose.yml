@@ -1,7 +1,9 @@
 name: 'unwork'
 services:
   api:
+    container_name: 'unwork'
     image: 'ghcr.io/shba007/unwork-api:latest'
+    restart: on-failure:3
     env_file:
       - .env.prod
     ports:

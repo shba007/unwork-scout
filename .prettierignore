@@ -16,6 +16,9 @@ pnpm-lock.yaml
 logs
 *.log
 
+# Testing
+coverage
+
 # Misc
 .DS_Store
 .fleet

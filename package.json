@@ -17,9 +17,10 @@
     "node": "^20.15.0 || ^22.11.0",
     "pnpm": "^9.15.0"
   },
-  "packageManager": "pnpm@9.15.1",
+  "packageManager": "pnpm@9.15.2",
   "scripts": {
-    "prepare": "husky",
+    "prepare": "husky || true",
+    "postinstall": "nitro prepare && prisma generate",
     "dev": "nitro dev",
     "detect": "gitleaks git --verbose",
     "lint": "eslint . --fix",
@@ -40,7 +41,9 @@
   "dependencies": {
     "@prisma/client": "6.1.0",
     "date-fns": "^4.1.0",
-    "nitropack": "^2.10.4"
+    "nitropack": "^2.10.4",
+    "prisma": "^6.1.0",
+    "puppeteer": "^23.11.1"
   },
   "devDependencies": {
     "@changesets/cli": "^2.27.11",
@@ -51,7 +54,6 @@
     "eslint-config-unjs": "^0.4.2",
     "husky": "^9.1.7",
     "prettier": "^3.4.2",
-    "prisma": "^6.1.0",
     "untun": "^0.1.3"
   }
 }

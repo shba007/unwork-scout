@@ -1,15 +1,16 @@
 FROM node:lts-alpine AS builder
 
-WORKDIR /app
-
-COPY package.json pnpm-lock.yaml prisma ./
-
-RUN corepack enable
-
 ENV PNPM_HOME="/pnpm"
 ENV PATH="$PNPM_HOME:$PATH"
 
-RUN --mount=type=cache,id=pnpm,target=/pnpm/store pnpm install --frozen-lockfile
+WORKDIR /app
+
+RUN corepack enable
+
+COPY package.json pnpm-lock.yaml ./
+COPY prisma nitro.config.ts ./
+
+RUN --mount=type=cache,id=pnpm,target=/pnpm/store pnpm install --frozen-lockfile --production
 
 COPY . .
 
@@ -22,8 +23,11 @@ ARG BUILD_TIME
 
 ENV NODE_ENV=production
 ENV NITRO_APP_VERSION=$VERSION
+ENV PUPPETEER_EXECUTABLE_PATH=/usr/bin/chromium-browser
 
 WORKDIR /app
+
+RUN apk add --no-cache chromium
 
 COPY --from=builder /app/.output ./.output
 
