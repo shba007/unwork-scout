@@ -1,5 +1,11 @@
 # unwork-api
 
+## 0.1.1
+
+### Patch Changes
+
+- b94e53e: fix: update Dockerfile for production build and add Chromium support
+
 ## 0.1.0
 
 ### Minor Changes
