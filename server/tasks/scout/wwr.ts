@@ -11,16 +11,14 @@ export default defineTask({
     results?: any
   }> {
     console.info('Running We Work Remotely Scout task...')
-    const browser = await puppeteer.launch(
+    const browser =
       import.meta.env.NODE_ENV === 'production'
-        ? {
-            executablePath: import.meta.env.PUPPETEER_EXECUTABLE_PATH,
-            args: ['--no-sandbox', '--headless', '--disable-gpu'],
-          }
-        : {
+        ? await puppeteer.connect({
+            browserWSEndpoint: import.meta.env.BROWSER_ENDPOINT,
+          })
+        : await puppeteer.launch({
             headless: false,
-          }
-    )
+          })
 
     try {
       const { category, companyName, search, limit } = payload as {

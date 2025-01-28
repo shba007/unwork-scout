@@ -1,4 +1,4 @@
-# unwork-api
+# unwork-scout
 
 ## 0.1.2
 

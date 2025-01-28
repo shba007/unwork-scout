@@ -23,11 +23,8 @@ ARG BUILD_TIME
 
 ENV NODE_ENV=production
 ENV NITRO_APP_VERSION=$VERSION
-ENV PUPPETEER_EXECUTABLE_PATH=/usr/bin/chromium-browser
 
 WORKDIR /app
-
-RUN apk add --no-cache chromium
 
 COPY --from=builder /app/.output ./.output
 
