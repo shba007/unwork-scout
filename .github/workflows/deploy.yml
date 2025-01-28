@@ -14,9 +14,6 @@ env:
   REPO: ${{ github.repository }}
   REGISTRY: ${{ vars.REGISTRY }}
   USERNAME: ${{ vars.USERNAME }}
-  PORT: ${{ vars.PORT }}
-  NODE_ENV: production
-  NITRO_PRESET: ${{ vars.NITRO_PRESET }}
 
 jobs:
   build:

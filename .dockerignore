@@ -25,9 +25,8 @@ coverage
 .fleet
 .idea
 
-# Local env files
-.env
-.env.*
+# Env files
+.env*
 
 # Dockerfile
 .dockerignore

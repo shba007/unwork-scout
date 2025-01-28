@@ -9,7 +9,8 @@ export default defineNitroConfig({
     tasks: true,
   },
   scheduledTasks: {
-    '1-59/2 * * * *': ['scout:remotive'],
-    '0-58/2 * * * *': ['scout:naukri'],
+    '1-59/3 * * * *': ['scout:remotive'],
+    '2-59/3 * * * *': ['scout:naukri'],
+    '0-58/3 * * * *': ['scout:wwr'],
   },
 })

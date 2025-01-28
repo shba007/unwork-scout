@@ -1,12 +1,12 @@
 {
-  "name": "unwork-api",
+  "name": "unwork-scout",
   "version": "0.1.1",
-  "description": "Global REST API Job Scouting Service",
+  "description": "Job Scouting Service",
   "author": "Shirsendu Bairagi <shirsendu2001@gmail.com>",
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/shba007/unwork-api.git"
+    "url": "git+https://github.com/shba007/unwork-scout.git"
   },
   "type": "module",
   "private": true,
@@ -43,7 +43,7 @@
     "date-fns": "^4.1.0",
     "nitropack": "^2.10.4",
     "prisma": "^6.1.0",
-    "puppeteer": "^23.11.1"
+    "puppeteer": "^24.1.1"
   },
   "devDependencies": {
     "@changesets/cli": "^2.27.11",
