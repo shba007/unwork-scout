@@ -1,5 +1,11 @@
 # unwork-api
 
+## 0.1.2
+
+### Patch Changes
+
+- 3256c8c: refactor: update Docker configuration and improve We Work Remotely Scout task
+
 ## 0.1.1
 
 ### Patch Changes
