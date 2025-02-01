@@ -1,5 +1,12 @@
 # unwork-scout
 
+## 0.1.3
+
+### Patch Changes
+
+- bdd623d: chore: update deployment script and package dependencies
+- 3a9e39f: refactor: moved chromium from docker image to browserless image
+
 ## 0.1.2
 
 ### Patch Changes
