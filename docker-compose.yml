@@ -1,4 +1,4 @@
-name: 'unwork-dev'
+name: 'unwork'
 services:
   scout:
     image: 'ghcr.io/shba007/unwork-scout:latest'
