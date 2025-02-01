@@ -1,11 +1,8 @@
 name: 'unwork-dev'
 services:
   scout:
-    # image: 'ghcr.io/shba007/unwork-api:latest'
-    build: .
+    image: 'ghcr.io/shba007/unwork-scout:latest'
     restart: on-failure:3
-    environment:
-      - BROWSER_ENDPOINT=ws://browserless:3000
     env_file:
       - .env.prod
     ports:
@@ -24,10 +21,8 @@ services:
       - db-data:/var/lib/postgresql/data
     ports:
       - '1000:5432'
-    environment:
-      - POSTGRES_USER=postgres
-      - POSTGRES_PASSWORD=postgres
-      - POSTGRES_DB=main
+    env_file:
+      - .env.prod
     healthcheck:
       test: ['CMD-SHELL', 'pg_isready -U postgres']
       interval: 10s
