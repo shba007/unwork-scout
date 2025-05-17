@@ -1,7 +1,7 @@
-name: 'unwork'
+name: 'unwork-dev'
 services:
   scout:
-    image: 'ghcr.io/shba007/unwork-scout:latest'
+    build: .
     restart: on-failure:3
     env_file:
       - .env.prod

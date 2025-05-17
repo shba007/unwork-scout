@@ -28,6 +28,11 @@ coverage
 # Env files
 .env*
 
+# Prisma files
+prisma/*.db
+prisma/*.db-*
+prisma/generated
+
 # Dockerfile
 .dockerignore
 Dockerfile

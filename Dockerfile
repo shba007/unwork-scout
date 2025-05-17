@@ -5,10 +5,10 @@ ENV PATH="$PNPM_HOME:$PATH"
 
 WORKDIR /app
 
-RUN corepack enable
+RUN npm i -g pnpm
 
 COPY package.json pnpm-lock.yaml ./
-COPY prisma nitro.config.ts ./
+COPY nitro.config.ts prisma ./
 
 RUN --mount=type=cache,id=pnpm,target=/pnpm/store pnpm install --frozen-lockfile --production
 

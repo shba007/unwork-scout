@@ -24,4 +24,9 @@ coverage
 .env*
 !.env.example
 
+# Prisma files
+prisma/*.db
+prisma/*.db-*
+prisma/generated
+
 user.config.ts
