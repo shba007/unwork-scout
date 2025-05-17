@@ -1,4 +1,4 @@
-import prisma from '~~/lib/prisma'
+import prisma from '~~/server/utils/prisma'
 
 interface NAUKRI_API_JOB_RESPONSE {
   noOfJobs: number

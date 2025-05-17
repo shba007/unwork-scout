@@ -1,5 +1,5 @@
 import promisePool from '~/utils/promise-pool'
-import prisma from '~~/lib/prisma'
+import prisma from '~~/server/utils/prisma'
 
 interface REMOTIVE_API_JOB_RESPONSE {
   'job-count': number
