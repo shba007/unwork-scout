@@ -1,5 +1,30 @@
 # unwork-scout
 
+## v0.1.3
+
+[compare changes](https://github.com/shba007/unwork-scout/compare/v0.1.2...v0.1.3)
+
+### 🚀 Enhancements
+
+- **prisma:** Add docker swam, node -> bun, changesets -> changelogen ([2fee81f](https://github.com/shba007/unwork-scout/commit/2fee81f))
+
+### 💅 Refactors
+
+- Moved chromium from docker image to browserless image ([3a9e39f](https://github.com/shba007/unwork-scout/commit/3a9e39f))
+- Update Docker Compose configuration for scout service ([02a1a5a](https://github.com/shba007/unwork-scout/commit/02a1a5a))
+- Rename Docker Compose project from 'unwork-dev' to 'unwork' ([b1f1255](https://github.com/shba007/unwork-scout/commit/b1f1255))
+- Switch from Node.js to Bun in Dockerfile for improved performance ([4de4fe3](https://github.com/shba007/unwork-scout/commit/4de4fe3))
+- Update prisma import paths to use server/utils for consistency ([384c24c](https://github.com/shba007/unwork-scout/commit/384c24c))
+
+### 🏡 Chore
+
+- Update deployment script and package dependencies ([bdd623d](https://github.com/shba007/unwork-scout/commit/bdd623d))
+
+### ❤️ Contributors
+
+- Shba007 ([@shba007](https://github.com/shba007))
+- Shirsendu Bairagi ([@shba007](https://github.com/shba007))
+
 ## 0.1.2
 
 ### Patch Changes
