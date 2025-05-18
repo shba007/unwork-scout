@@ -1,7 +1,7 @@
 version: '3.9'
 services:
   scout:
-    image: 'ghcr.io/shba007/unwork-scout:latest'
+    image: ghcr.io/shba007/unwork-scout:latest
     env_file:
       - .env.prod
     ports:
@@ -14,6 +14,30 @@ services:
         condition: on-failure
         max_attempts: 3
 
+  browserless:
+    image: ghcr.io/browserless/chromium:latest
+    restart: on-failure:3
+    ports:
+      - 1200:3000
+
+  postgres:
+    image: postgres:17-alpine
+    command: '-d 1'
+    volumes:
+      - db-data:/var/lib/postgresql/data
+    ports:
+      - '1000:5432'
+    env_file:
+      - .env.prod
+    healthcheck:
+      test: ['CMD-SHELL', 'pg_isready -U postgres']
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
 networks:
   front-tier:
     driver: overlay
+
+volumes:
+  db-data:

@@ -9,7 +9,7 @@ services:
       - 2400:3000
 
   browserless:
-    image: 'ghcr.io/browserless/chromium:latest'
+    image: ghcr.io/browserless/chromium:latest
     restart: on-failure:3
     ports:
       - 1200:3000
