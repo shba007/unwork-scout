@@ -1,4 +1,4 @@
-name: 'unwork'
+name: 'unwork-dev'
 services:
   scout:
     build: .
