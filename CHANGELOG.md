@@ -1,5 +1,26 @@
 # unwork-scout
 
+## v0.1.4
+
+[compare changes](https://github.com/shba007/unwork-scout/compare/v0.1.3...v0.1.4)
+
+### 🩹 Fixes
+
+- Update docker stack deploy service name and improve formatting in docker-compose files ([16526aa](https://github.com/shba007/unwork-scout/commit/16526aa))
+
+### 💅 Refactors
+
+- Rename Docker Compose project from 'unwork-dev' to 'unwork' ([bb1d60c](https://github.com/shba007/unwork-scout/commit/bb1d60c))
+
+### 🏡 Chore
+
+- Update docker-compose configurations updated ci/cd pipeline ([c87ac6c](https://github.com/shba007/unwork-scout/commit/c87ac6c))
+
+### ❤️ Contributors
+
+- Shba007 ([@shba007](https://github.com/shba007))
+- Shirsendu Bairagi ([@shba007](https://github.com/shba007))
+
 ## v0.1.3
 
 [compare changes](https://github.com/shba007/unwork-scout/compare/v0.1.2...v0.1.3)
